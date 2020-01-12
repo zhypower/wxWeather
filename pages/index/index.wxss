@@ -1,0 +1,97 @@
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #8d4acd;
+  overflow-y: hidden;
+  color: white;
+}
+
+view {
+  box-sizing: border-box;
+}
+
+.myContainer {
+  width: 100%;
+  height: auto;
+  padding: 30px;
+}
+
+.myDates {
+}
+
+.words {
+}
+.myInfo{
+  margin: 0 auto;
+  width: 100px;
+  text-align: center
+
+}
+.info1 {
+  font-size: 80px;
+  float: left
+}
+
+.info2 {
+  font-size: 25px;
+}
+.infos{
+  position: relative;
+  top:25px;
+}
+
+.info3 {
+  font-size: 20px;
+}
+.city{
+  clear: both;
+  text-align: center
+}
+.myLogo {
+  margin: 0 auto;
+  width: 130px;
+  height: 100px;
+}
+.cards{
+  position: relative;
+  width: 300px;
+  height: auto;
+  border-radius: 20px;
+  background: white;
+  margin:  0 auto
+}
+
+.myLogo image {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+.myUpdate{
+  margin-top: 15px;
+  float: right
+}
+.suggestion{
+  
+  margin-top: 15px;
+  padding: 20px;
+  padding-left: 30px;
+  font-size: 14px;
+  color: #755692;
+}
+.dots{
+  height: 80px;
+  width: 20px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  border-radius: 10px;
+}
+.org{
+ background: #ffa509;
+}
+.green{
+  background: #4bbc00;
+}
+.reds{
+  background: #fb4075;
+}

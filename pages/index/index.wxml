@@ -1,0 +1,32 @@
+<view class="myContainer">
+  <view class="myDates">
+    <view class="words">{{myYears}}年{{myMonths}}月{{myDates}}日</view>
+    <!-- <view class="words">{{myDays}} {{myDaysCN}}</view> -->
+  </view>
+  <view class="myLogo">
+    <image src="{{logosrc}}"></image>
+  </view>
+  <view class="myInfo">
+    <view class="info1">{{weathers.now.tmp}}</view>
+    <view class="infos">
+      <view class="info2">℃</view>
+      <view class="info3">{{weathers.now.cond.txt}}</view>
+    </view>
+  </view>
+  <view class="city">{{weathers.basic.cnty}}-{{weathers.basic.city}}</view>
+  <view class="cards">
+    <view class="suggestion">{{weathers.suggestion.air.txt}}</view>
+    <view class="dots org"></view>
+  </view>
+  <view class="cards">
+    <view class="suggestion">{{weathers.suggestion.comf.txt}}</view>
+    <view class="dots green"></view>
+  </view>
+  <view class="cards">
+    <view class="suggestion">{{weathers.suggestion.flu.txt}}</view>
+    <view class="dots reds"></view>
+  </view>
+  <view class="myUpdate">
+    更新于{{myUpdatetime}}
+  </view>
+</view>
