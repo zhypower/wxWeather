@@ -19,11 +19,11 @@
     <view class="dots org"></view>
   </view>
   <view class="cards">
-    <view class="suggestion">{{weathers.suggestion.comf.txt}}</view>
+    <view class="suggestion">{{weathers.suggestion.cw.txt}}</view>
     <view class="dots green"></view>
   </view>
   <view class="cards">
-    <view class="suggestion">{{weathers.suggestion.flu.txt}}</view>
+    <view class="suggestion">{{weathers.suggestion.trav.txt}}</view>
     <view class="dots reds"></view>
   </view>
   <view class="myUpdate">

@@ -15,6 +15,7 @@ Page({
     var that = this;
     that.getLocation();
     that.getDates();
+
   },
   getDates: function() {
     var date = new Date();
@@ -87,6 +88,26 @@ Page({
         that.setData({
           weathers: res.data.HeWeather5[0]
         })
+        if (res.data.HeWeather5[0].now.cond.txt=="阴"){
+          that.setData({
+            logosrc: "../assets/yin.png"
+          })
+        }
+        if (res.data.HeWeather5[0].now.cond.txt == "小雨") {
+          that.setData({
+            logosrc: "../assets/rain.png"
+          })
+        }
+        if (res.data.HeWeather5[0].now.cond.txt == "晴") {
+          that.setData({
+            logosrc: "../assets/qing.png"
+          })
+        }
+        if (res.data.HeWeather5[0].now.cond.txt == "晴转多云") {
+          that.setData({
+            logosrc: "../assets/qzdy.png"
+          })
+        }
       },
       fail: function(res) {},
       complete: function(res) {},
