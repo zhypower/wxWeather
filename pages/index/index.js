@@ -5,7 +5,8 @@ Page({
    */
   data: {
     weathers: null,
-    logosrc: "../assets/rain.png"
+    logosrc: "../assets/rain.png",
+    weatherFuture:null
   },
 
   /**
@@ -65,7 +66,8 @@ Page({
           street: street,
         })
         var descCity = city.substring(0, city.length - 1);
-        that.getWeahter(descCity);
+        that.getWeahterNow(descCity);
+        that.getWeahterFuture(descCity);
       },
       fail: function(res) {},
       complete: function(res) {},
@@ -73,46 +75,118 @@ Page({
   },
 
   //获取天气信息
-  getWeahter: function(city) {
+  // getWeahter: function(city) {
+  //   var that = this
+  //   var url = "https://free-api.heweather.com/v5/weather"
+  //   var params = {
+  //     city: city,
+  //     key: "894fc2a749104d679fa022c3e71afe83"
+  //   }
+  //   wx.request({
+  //     url: url,
+  //     data: params,
+  //     success: function(res) {
+  //       console.log(res.data.HeWeather5[0])
+  //       that.setData({
+  //         weathers: res.data.HeWeather5[0]
+  //       })
+  //       if (res.data.HeWeather5[0].now.cond.txt=="阴"){
+  //         that.setData({
+  //           logosrc: "../assets/yin.png"
+  //         })
+  //       }
+  //       if (res.data.HeWeather5[0].now.cond.txt == "小雨") {
+  //         that.setData({
+  //           logosrc: "../assets/rain.png"
+  //         })
+  //       }
+  //       if (res.data.HeWeather5[0].now.cond.txt == "晴") {
+  //         that.setData({
+  //           logosrc: "../assets/qing.png"
+  //         })
+  //       }
+  //       if (res.data.HeWeather5[0].now.cond.txt == "晴转多云") {
+  //         that.setData({
+  //           logosrc: "../assets/qzdy.png"
+  //         })
+  //       }
+  //     },
+  //     fail: function(res) {},
+  //     complete: function(res) {},
+  //   })
+  // },
+
+  getWeahterNow: function (city) {
     var that = this
-    var url = "https://free-api.heweather.com/v5/weather"
+    var url = "https://free-api.heweather.com/s6/weather/now?location=" + city + "&key=cc33b9a52d6e48de852477798980b76e"
     var params = {
       city: city,
-      key: "894fc2a749104d679fa022c3e71afe83"
+      key: "cc33b9a52d6e48de852477798980b76e"
     }
     wx.request({
       url: url,
       data: params,
-      success: function(res) {
-        console.log(res.data.HeWeather5[0])
+      success: function (res) {
+        console.log(res.data.HeWeather6[0])
         that.setData({
-          weathers: res.data.HeWeather5[0]
+          weathers: res.data.HeWeather6[0]
         })
-        if (res.data.HeWeather5[0].now.cond.txt=="阴"){
+        if (res.data.HeWeather6[0].now.cond_txt == "阴") {
           that.setData({
             logosrc: "../assets/yin.png"
           })
         }
-        if (res.data.HeWeather5[0].now.cond.txt == "小雨") {
+        if (res.data.HeWeather6[0].now.cond_txt == "小雨") {
           that.setData({
             logosrc: "../assets/rain.png"
           })
         }
-        if (res.data.HeWeather5[0].now.cond.txt == "晴") {
+        if (res.data.HeWeather6[0].now.cond_txt == "晴") {
           that.setData({
             logosrc: "../assets/qing.png"
           })
         }
-        if (res.data.HeWeather5[0].now.cond.txt == "晴转多云") {
+        if (res.data.HeWeather6[0].now.cond_txt == "晴转多云") {
           that.setData({
             logosrc: "../assets/qzdy.png"
           })
         }
+        if (res.data.HeWeather6[0].now.cond_txt == "多云") {
+          that.setData({
+            logosrc: "../assets/dy.png"
+          })
+        }
       },
-      fail: function(res) {},
-      complete: function(res) {},
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
+
+
+
+
+  getWeahterFuture: function (city) {
+    var that = this
+    var url = "https://free-api.heweather.com/s6/weather/forecast?location=" + city + "&key=cc33b9a52d6e48de852477798980b76e"
+    var params = {
+      city: city,
+      key: "cc33b9a52d6e48de852477798980b76e"
+    }
+    wx.request({
+      url: url,
+      data: params,
+      success: function (res) {
+        console.log(res.data.HeWeather6[0])
+        that.setData({
+          weatherFuture: res.data.HeWeather6[0].daily_forecast
+        })
+        
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

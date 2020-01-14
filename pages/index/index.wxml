@@ -10,22 +10,43 @@
     <view class="info1">{{weathers.now.tmp}}</view>
     <view class="infos">
       <view class="info2">℃</view>
-      <view class="info3">{{weathers.now.cond.txt}}</view>
+      <view class="info3">{{weathers.now.cond_txt}}</view>
     </view>
   </view>
-  <view class="city">{{weathers.basic.cnty}}-{{weathers.basic.city}}</view>
-  <view class="cards">
-    <view class="suggestion">{{weathers.suggestion.air.txt}}</view>
-    <view class="dots org"></view>
+  <view class="city">
+    {{weathers.basic.cnty}}-{{weathers.basic.location}}
   </view>
-  <view class="cards">
-    <view class="suggestion">{{weathers.suggestion.cw.txt}}</view>
-    <view class="dots green"></view>
-  </view>
-  <view class="cards">
-    <view class="suggestion">{{weathers.suggestion.trav.txt}}</view>
-    <view class="dots reds"></view>
-  </view>
+
+  <!-- <scroll-view  scroll-x="true" class="gundong" >
+    <view wx:for="{{weatherFuture}}">
+      <view class="cards">
+        <view class="ts xz">{{item.date}}</view>
+        <view class="ts grey">max</view>
+        <view class="zs">{{item.tmp_max}}℃</view>
+        <view class="ts grey">min</view>
+        <view class="xz zs">{{item.tmp_min}}℃</view>
+        <view class="grey">{{item.cond_txt_d}}</view>
+      </view>
+    </view>
+</scroll-view> -->
+
+  <scroll-view scroll-x scroll-with-animation class="gundong">
+    <view wx:for="{{weatherFuture}}" class="card-box">
+      <view class="cards">
+        <view class="ts xz">{{item.date}}</view>
+        <view class="ts grey">max</view>
+        <view class="zs">{{item.tmp_max}}℃</view>
+        <view class="ts grey">min</view>
+        <view class="xz zs">{{item.tmp_min}}℃</view>
+        <view class="grey">{{item.cond_txt_d}}</view>
+
+
+      </view>
+    </view>
+  </scroll-view>
+
+
+
   <view class="myUpdate">
     更新于{{myUpdatetime}}
   </view>
